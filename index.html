@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Hito 1 — Pryecto Marketplace</title>
+  </head>
+  <body>
+    <header id="hero-section">
+      <div class="container">
+        <div class="mx-auto my-2 col-12 col-md-12">
+          <h1 class="display-3 my-5">Hito 1 — Proyecto Final</h1>
+          <h2>Integrantes:</h2>
+          <ul>
+            <li>Claudio Poblete</li>
+            <li>Sebastian Peña</li>
+            <li>Julio Olivares</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <hr>
+    <br>
+    <section id="sobre-mi" class="container text-center my-5">
+      <h3 class="fw-medium mt-4">
+        1. Diseñar un boceto de las vistas del proyecto.
+      </h3>
+      <iframe
+      title="Servi"
+        style="border: 1px solid rgba(0, 0, 0, 0.1)"
+        width="1280"
+        height="720"
+        src="https://embed.figma.com/design/ljB0270HL1b3313ottjela/Servi-webapp?node-id=0-1&embed-host=share"
+        allowfullscreen
+      ></iframe>
+    </section>
+    <br>
+<hr>
+<br>
+    <section id="sobre-mi" class="container text-center my-5">
+      <h3 class="fw-medium mt-4">
+       2.Definir la navegación entre vistas marcando las públicas y las privadas
+      </h3>
+      <img src="./assets/images/vistas-priv-pub.png" alt="Descripción de la imagen" style="width: 1280px;">
+
+    </section>
+    <br><hr><br>
+
+    <section id="sobre-mi" class="container  my-5">
+      <h3 class="fw-medium mt-4 text-center">
+       3.Listado de dependencias a utilizar en el proyecto
+      </h3>
+      <pre style="background-color: #f4f4f9; color: #333; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Courier New', Courier, monospace; font-size: 14px; overflow-x: auto;">
+        {
+          "dependencias": {
+            "frontend": [
+              "React",
+              "React Router",
+              "Axios",
+              "Bootstrap",
+              "React Bootstrap",
+              "Formik",
+              "Yup"
+            ],
+            "backend": [
+              "Node.js",
+              "Express",
+              "Cors",
+              "JWT",
+              "bcrypt"
+            ],
+            "base_de_datos": [
+              "PostgreSQL",
+              "pg"
+            ],
+            "herramientas_de_desarrollo": [
+              "Nodemon",
+              "Dotenv"
+            ]
+          }
+        }
+            </pre>
+    </section>
+    <br>
+<hr>
+<br>
+    <section id="sobre-mi" class="container text-center my-5">
+      <h3 class="fw-medium mt-4">
+       4.Diseño las tablas de la base de datos y sus relaciones
+      </h3>
+      <img src="./assets/images/tablas-relaciones-servi.png" alt="Descripción de la imagen" style="width: 1280px;">
+
+    </section>
+    <br><hr><br>
+
+    <section id="sobre-mi" class="container  my-5">
+      <h3 class="fw-medium mt-4 text-center">
+       5.Diseñar el contrato de datos de la API REST.
+      </h3>
+      <pre style="background-color: #f4f4f9; color: #333; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Courier New', Courier, monospace; font-size: 14px; overflow-x: auto;">
+        {
+          "endpoints": {
+            "usuarios": {
+              "POST /usuarios": {
+                "request": {
+                  "payload": {
+                    "nombre": "String",
+                    "email": "String",
+                    "contraseña": "String",
+                    "fotoPerfil": "String",
+                    "descripcion": "String"
+                  }
+                }
+              },
+              "GET /usuarios/:id": {
+                "response": {
+                  "id": "Number",
+                  "nombre": "String",
+                  "email": "String",
+                  "fotoPerfil": "String",
+                  "descripcion": "String",
+                  "valoraciones": "Number"
+                }
+              }
+            },
+            "servicios": {
+              "POST /servicios": {
+                "request": {
+                  "payload": {
+                    "titulo": "String",
+                    "descripcion": "String",
+                    "presupuesto": "Number",
+                    "ubicacion": "String",
+                    "id_categoria": "Number",
+                    "id_usuario": "Number"
+                  }
+                },
+                "response": {
+                  "id": "Number",
+                  "titulo": "String",
+                  "descripcion": "String",
+                  "presupuesto": "Number",
+                  "ubicacion": "String",
+                  "fecha_publicacion": "String",
+                  "categoria": {
+                    "id": "Number",
+                    "nombre": "String"
+                  },
+                  "usuario": {
+                    "id": "Number",
+                    "nombre": "String"
+                  }
+                }
+              },
+              "GET /servicios": {
+                "response": [
+                  {
+                    "id": "Number",
+                    "titulo": "String",
+                    "descripcion": "String",
+                    "presupuesto": "Number",
+                    "ubicacion": "String",
+                    "fecha_publicacion": "String",
+                    "categoria": {
+                      "id": "Number",
+                      "nombre": "String"
+                    },
+                    "usuario": {
+                      "id": "Number",
+                      "nombre": "String"
+                    }
+                  }
+                ]
+              }
+            },
+            "resenas": {
+              "POST /resenas": {
+                "request": {
+                  "payload": {
+                    "id_servicio_realizado": "Number",
+                    "descripcion": "String",
+                    "valoracion": "Number",
+                    "fecha_resena": "String",
+                    "id_usuario": "Number"
+                  }
+                },
+                "response": {
+                  "id": "Number",
+                  "id_servicio_realizado": "Number",
+                  "descripcion": "String",
+                  "valoracion": "Number",
+                  "fecha_resena": "String",
+                  "usuario": {
+                    "id": "Number",
+                    "nombre": "String"
+                  }
+                }
+              },
+              "GET /resenas/:id_servicio_realizado": {
+                "response": [
+                  {
+                    "id": "Number",
+                    "descripcion": "String",
+                    "valoracion": "Number",
+                    "fecha_resena": "String",
+                    "usuario": {
+                      "id": "Number",
+                      "nombre": "String"
+                    }
+                  }
+                ]
+              }
+            },
+            "valoraciones": {
+              "POST /valoraciones": {
+                "request": {
+                  "payload": {
+                    "id_usuario": "Number",
+                    "id_servicio_realizado": "Number",
+                    "id_resena": "Number"
+                  }
+                }
+              },
+              "GET /valoraciones/:id_usuario": {
+                "response": {
+                  "valoracion_promedio": "Number",
+                  "detalles": [
+                    {
+                      "id_servicio_realizado": "Number",
+                      "valoracion": "Number",
+                      "resena": "String"
+                    }
+                  ]
+                }
+              }
+            },
+            "ofertas": {
+              "POST /ofertas": {
+                "request": {
+                  "payload": {
+                    "id_servicio": "Number",
+                    "id_usuario": "Number",
+                    "oferta": "Number"
+                  }
+                }
+              },
+              "GET /ofertas/:id_servicio": {
+                "response": [
+                  {
+                    "id": "Number",
+                    "id_usuario": "Number",
+                    "oferta": "Number",
+                    "usuario": {
+                      "nombre": "String",
+                      "email": "String"
+                    }
+                  }
+                ]
+              }
+            },
+            "categorias": {
+              "GET /categorias": {
+                "response": [
+                  {
+                    "id": "Number",
+                    "nombre": "String"
+                  }
+                ]
+              }
+            },
+            "pagos": {
+              "POST /pagos": {
+                "request": {
+                  "payload": {
+                    "id_servicio_realizado": "Number",
+                    "id_usuario": "Number",
+                    "fecha_pago": "String"
+                  }
+                }
+              },
+              "GET /pagos/:id_usuario": {
+                "response": [
+                  {
+                    "id": "Number",
+                    "id_servicio_realizado": "Number",
+                    "fecha_pago": "String",
+                    "monto": "Number"
+                  }
+                ]
+              }
+            },
+            "datos_bancarios": {
+              "POST /datos_bancarios": {
+                "request": {
+                  "payload": {
+                    "id_usuario": "Number",
+                    "banco": "String",
+                    "tipo_de_cuenta": "String",
+                    "numero_cuenta": "String"
+                  }
+                }
+              },
+              "GET /datos_bancarios/:id_usuario": {
+                "response": {
+                  "banco": "String",
+                  "tipo_de_cuenta": "String",
+                  "numero_cuenta": "String"
+                }
+              }
+            },
+            "servicios_realizados": {
+              "POST /servicios_realizados": {
+                "request": {
+                  "payload": {
+                    "id_servicio": "Number",
+                    "id_resena": "Number",
+                    "id_ofertas": "Number",
+                    "fecha_realizacion": "String",
+                    "id_usuario": "Number"
+                  }
+                }
+              },
+              "GET /servicios_realizados/:id_usuario": {
+                "response": [
+                  {
+                    "id": "Number",
+                    "id_servicio": "Number",
+                    "fecha_realizacion": "String",
+                    "usuario": {
+                      "id": "Number",
+                      "nombre": "String"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+            </pre>
+    </section>
+  </body>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+</html>
